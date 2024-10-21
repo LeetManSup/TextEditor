@@ -1,0 +1,48 @@
+﻿<Window x:Class="TextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:conv="clr-namespace:TextEditor.Converters"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Text Editor" Height="600" Width="800">
+    <Window.Resources>
+        <conv:ColorConverter x:Key="ColorConverter"/>
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Файл">
+                <MenuItem Header="_Новый" Click="NewFile_Click" Command="ApplicationCommands.New" InputGestureText="Ctrl+N"/>
+                <MenuItem Header="_Открыть..." Click="OpenFile_Click" Command="ApplicationCommands.Open" InputGestureText="Ctrl+O"/>
+                <MenuItem Header="_Сохранить" Click="SaveFile_Click" Command="ApplicationCommands.Save" InputGestureText="Ctrl+S"/>
+                <MenuItem Header="Сохранить _как..." Click="SaveAsFile_Click"/>
+                <Separator/>
+                <MenuItem Header="_Закрыть вкладку" Click="CloseTab_Click" Command="ApplicationCommands.Close"/>
+                <Separator/>
+                <MenuItem Header="В_ыход" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Правка">
+                <MenuItem Header="_Отменить" Click="Undo_Click" Command="ApplicationCommands.Undo" InputGestureText="Ctrl+Z"/>
+                <MenuItem Header="П_овторить" Click="Redo_Click" Command="ApplicationCommands.Redo" InputGestureText="Ctrl+Y"/>
+                <Separator/>
+                <MenuItem Header="_Копировать" Click="Copy_Click" Command="ApplicationCommands.Copy" InputGestureText="Ctrl+C"/>
+                <MenuItem Header="_Вырезать" Click="Cut_Click" Command="ApplicationCommands.Cut" InputGestureText="Ctrl+X"/>
+                <MenuItem Header="В_ставить" Click="Paste_Click" Command="ApplicationCommands.Paste" InputGestureText="Ctrl+V"/>
+                <Separator/>
+                <MenuItem Header="_Найти и заменить..." Click="FindReplace_Click" InputGestureText="Ctrl+F"/>
+            </MenuItem>
+            <MenuItem Header="_Формат">
+                <MenuItem Header="_Шрифт..." Click="FontSettings_Click"/>
+                <MenuItem Header="_Цвет текста..." Click="ColorSettings_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Печать">
+                <MenuItem Header="_Печать..." Click="Print_Click" Command="ApplicationCommands.Print" InputGestureText="Ctrl+P"/>
+            </MenuItem>
+            <MenuItem Header="_Помощь">
+                <MenuItem Header="_О программе" Click="About_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <TabControl Name="TabControlEditors">
+            <!-- Вкладки добавляются программно -->
+        </TabControl>
+    </DockPanel>
+</Window>
