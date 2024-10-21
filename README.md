@@ -89,7 +89,7 @@ class AutoSaveManager {
 }
 
 %% Интерфейс INotifyPropertyChanged
-interface INotifyPropertyChanged {
+class INotifyPropertyChanged {
     + event PropertyChangedEventHandler PropertyChanged
 }
 
